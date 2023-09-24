@@ -27,6 +27,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
+                Color.clear
                 //MARK: - PAGE IMAGE
                 Image(.magazineFrontCover)
                     .resizable()
@@ -69,6 +70,12 @@ struct ContentView: View {
                     isAnimating = true
                 }
             })
+            //MARK: - INFO PANEL
+            .overlay(alignment: .top) {
+                InfoPanelView(scale: imageScale, offset: imageOffset)
+                    .padding(.horizontal)
+                    .padding(.top, 30)
+            }
         } //: NAVIGATION
     }
 }
